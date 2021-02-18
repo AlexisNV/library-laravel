@@ -69,7 +69,7 @@ class LibraryController extends Controller
         return redirect('/library');
     }
 
-    public function update($userId, $bookId, Request $request){
+    public function update($userId, $bookId, BookRequest $request){
         $user = User::find($userId);
         if(!$user){
             session(['message' => 'ERROR: Usuario no encontrado.']);
