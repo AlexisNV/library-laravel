@@ -13,20 +13,28 @@
                         <div class="form-group">
                             <label for="users">Usuario</label>
                             <select class="form-control" id="users" name="users">
-                                <option selected>Selecciona un usuario</option>
+                                <option selected value="">Selecciona un usuario</option>
                                 @foreach($users as $user)
                                     <option value="{{ $user->id }}">{{ $user->name }} {{ $user->lastname }}</option>
                                 @endforeach
                             </select>
+                            @error('users')
+                            <i class="fas fa-times" style="color: red"></i>
+                            <span style="color: red"> {{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="books">Libro</label>
                             <select class="form-control" id="books" name="books">
-                                <option selected>Selecciona un libro</option>
+                                <option selected value="">Selecciona un libro</option>
                                 @foreach($books as $book)
                                     <option value="{{ $book->id }}">{{ $book->title }} -- {{ $book->author }} -- {{ $book->editorial }}</option>
                                 @endforeach
                             </select>
+                            @error('books')
+                            <i class="fas fa-times" style="color: red"></i>
+                            <span style="color: red"> {{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary" style="padding:8px 100px;margin-top:25px;">

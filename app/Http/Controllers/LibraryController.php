@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Http\Requests\BookRequest;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -47,7 +48,7 @@ class LibraryController extends Controller
         return view('library.edit', ['users' => $users, 'books' => $books, 'userToEdit' => $userToEdit, 'bookToEdit' => $bookToEdit]);
     }
 
-    public function store(Request $request){
+    public function store(BookRequest $request){
         $user = User::find($request->users);
         $bookID = $request->books;
         $now = Date('Y-m-d');
